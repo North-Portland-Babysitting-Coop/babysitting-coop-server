@@ -7,6 +7,9 @@ verify_ssl = true
 
 [packages]
 django = "*"
+libsass = "*"
+django-compressor = "*"
+django-sass-processor = "*"
 
 [requires]
 python_version = "3.6"
