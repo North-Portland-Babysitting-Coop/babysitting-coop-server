@@ -1,0 +1,13 @@
+{
+  "name": "babysitting-coop-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/North-Portland-Babysitting-Coop/babysitting-coop-server.git",
+  "author": "Tim Frazee <timtbit@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "popper": "^1.0.1"
+  }
+}
