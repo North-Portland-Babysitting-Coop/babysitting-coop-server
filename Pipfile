@@ -10,6 +10,10 @@ django = "*"
 libsass = "*"
 django-compressor = "*"
 django-sass-processor = "*"
+django-compressor-toolkit = "*"
+djangorestframework = "*"
+django-cors-headers = "*"
+django-bootstrap4 = "*"
 
 [requires]
 python_version = "3.6"
