@@ -1,31 +1,50 @@
 {% extends "layouts/logged_out.html" %}
 
 {% block content %}
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=327235341138390&autoLogAppEvents=1"></script>
+
   <div class="row vh-100 align-items-center justify-content-center">
     <div class="col col-md-10 col-xl-6">
       <div class="card">
         <div class="card-header">
-          Please log in
+          Welcome to the [REDACTED] Babysitting Coop
         </div>
         <div class="card-body">
-          <h5 class="card-title">
-            Welcome!
-          </h5>
+          {% if True %}
+            <div class="m-auto text-center">
+              <div class="fb-login-button" data-width="1000" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+            </div>
+            <hr />
+          {% endif %}
+          {% if base_error %}
+            <div class="alert alert-danger">
+              {{ base_error }}
+            </div>
+          {% endif %}
           <form action="/login" method="POST">
             {% csrf_token %}
             <div class="form-group">
-              {{ form.email.label_tag }}
-              {{ form.email }}
-              {{ form.email.errors }}
+              <label>Email</label>
+              <input type="email" class="form-control{% if form.username.errors %} is-invalid{% endif %}" name="username" />
+              <div class="invalid-feedback">
+                {{ form.username.errors }}
+              </div>
             </div>
             <div class="form-group">
               {{ form.password.label_tag }}
               {{ form.password }}
               {{ form.password.errors }}
             </div>
-            <input type="submit" class="btn btn-primary" value="Log In">
+            <div class="form-check form-group">
+              <input type="checkbox" class="form-check-input" name="remember" value="true" />
+              <label for="remember" class="form-check-label">Remember Me</label>
+            </div>
+            <input type="submit" class="btn btn-block btn-success" value="Log In">
           </form>
         </div>
+        <div class="card-footer">
+          <a href="/register" class="btn btn-sm btn-outline-success">Request Access</a>
       </div>
     </div>
   </div>

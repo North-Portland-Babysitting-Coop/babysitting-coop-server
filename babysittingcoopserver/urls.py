@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from babysitting_app.views.auth import Login
+from babysitting_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login', Login.as_view())
+    path('login', views.auth.Login.as_view()),
+    path('accounts/login', views.auth.Login.as_view()),
+    path('register', views.auth.Register.as_view()),
+    path('dashboard', views.dashboard.Dashboard.as_view())
 ]
